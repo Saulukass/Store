@@ -1,10 +1,5 @@
 ﻿using Store.Marketing.MarketingDomainEntities;
 using Store.Marketing.MarketingDomainServices;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Store.Marketing.MarketingFacadeService
     {
