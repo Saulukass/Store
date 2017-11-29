@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using Autofac.Core;
 using Store.IntegrationServices;
 using System;
 
@@ -9,7 +10,7 @@ namespace AutoFacConfiguration
         static void Main(string[] args)
             {
             bool running = true;
-            IContainer container = GetAutoWiredApp();
+            IContainer container = GetSecondVersion();
             using (var scope = container.BeginLifetimeScope())
                 {
                 Store.Sales.SalesUI.ConsoleSalesUI salesUi = scope.Resolve<Store.Sales.SalesUI.ConsoleSalesUI>();
@@ -98,7 +99,7 @@ namespace AutoFacConfiguration
             builder.RegisterType<Store.Sales.SalesRepository.InMemoryCustomerRepository>().As<Store.Sales.SalesFacadeService.ICustomerRepository>();
             builder.RegisterType<Store.Sales.SalesRepository.InMemoryOrderRepository>().As<Store.Sales.SalesFacadeService.IOrderRepository>();
             builder.RegisterType<Store.Sales.SalesController.SalesControllerImplementation>().As<Store.Sales.SalesController.ISalesController>();
-            builder.RegisterType<Store.Sales.SalesUI.ConsoleSalesUI>();
+            builder.RegisterType<Store.Sales.SalesUI.ConsoleSalesUI>().AsSelf();
 
             // registering production types
             builder.RegisterType<Store.Production.ProductionDomainEntities.LocalPhone>().As<Store.Production.ProductionDomainEntities.IPhone>();
@@ -110,7 +111,8 @@ namespace AutoFacConfiguration
             builder.RegisterType<Store.Production.ProductionRepository.InMemoryPhoneRepository>().As<Store.Production.ProductionFacadeService.IPhoneRepository>();
             builder.RegisterType<Store.Production.ProductionRepository.InMemoryWarehouseRepository>().As<Store.Production.ProductionFacadeService.IWarehouseRepository>();
             builder.RegisterType<Store.Production.ProductionController.ProductionControllerImplementation>().As<Store.Production.ProductionController.IProductionController>();
-            builder.RegisterType<Store.Production.ProductionUI.ConsoleProductionUI>();
+            builder.RegisterType<Store.IntegrationServices.PhoneAdministratorNotifier>().As<Store.Production.ProductionDomainServices.IAdministratorNotifier>();
+            builder.RegisterType<Store.Production.ProductionUI.ConsoleProductionUI>().AsSelf();
 
             // registering marketing types
             builder.RegisterType<Store.Marketing.MarketingDomainEntities.RadioAdvertisment>().As<Store.Marketing.MarketingDomainEntities.IAdvertisment>();
@@ -121,7 +123,50 @@ namespace AutoFacConfiguration
             builder.RegisterType<Store.Marketing.MarketingRepository.InMemoryAdvertismentRepository>().As<Store.Marketing.MarketingFacadeService.IAdvertismentRepository>();
             builder.RegisterType<Store.Marketing.MarketingRepository.InMemoryCampaignRepository>().As<Store.Marketing.MarketingFacadeService.ICampaignRepository>();
             builder.RegisterType<Store.Marketing.MarketingController.MarketingControllerImplementation>().As<Store.Marketing.MarketingController.IMarketingController>();
-            builder.RegisterType<Store.Marketing.MarketingUI.ConsoleMarketingUI>();
+            builder.RegisterType<Store.Marketing.MarketingUI.ConsoleMarketingUI>().AsSelf();
+            return builder.Build();
+            }
+
+        static IContainer GetSecondVersion()
+            {
+            ContainerBuilder builder = new ContainerBuilder();
+
+            // registering sales types
+            builder.RegisterType<Store.Sales.SalesDomainEntities.LoyalCustomer>().As<Store.Sales.SalesDomainEntities.ICustomer>();
+            builder.RegisterType<Store.Sales.SalesDomainEntities.DiscountedOrder>().As<Store.Sales.SalesDomainEntities.IOrder>();
+            builder.RegisterType<Store.Sales.SalesDomainEntities.DiscountedSalesFactory>().As<Store.Sales.SalesDomainEntities.ISalesFactory>();
+            builder.RegisterType<Store.Sales.SalesDomainServices.BigSalePriceCalculator>().As<Store.Sales.SalesDomainServices.IOrderPriceCalculator>();
+            builder.RegisterType<Store.Sales.SalesFacadeService.SalesFacadeImplementation>().As<Store.Sales.SalesFacadeService.ISalesFacade>();
+            builder.RegisterType<ReliableEmailService>().As<Store.Sales.SalesFacadeService.IEmailSender>();
+            builder.RegisterType<Store.Sales.SalesRepository.InMemoryCustomerRepository>().As<Store.Sales.SalesFacadeService.ICustomerRepository>();
+            builder.RegisterType<Store.Sales.SalesRepository.InMemoryOrderRepository>().As<Store.Sales.SalesFacadeService.IOrderRepository>();
+            builder.RegisterType<Store.Sales.SalesController.SalesControllerImplementation>().As<Store.Sales.SalesController.ISalesController>();
+            builder.RegisterType<Store.Sales.SalesUI.ConsoleSalesUI>().AsSelf();
+
+            // registering production types
+            builder.RegisterType<Store.Production.ProductionDomainEntities.AbroadPhone>().As<Store.Production.ProductionDomainEntities.IPhone>();
+            builder.RegisterType<Store.Production.ProductionDomainEntities.AbroadWarehouse>().As<Store.Production.ProductionDomainEntities.IWarehouse>();
+            builder.RegisterType<Store.Production.ProductionDomainEntities.AbroadProductionFactory>().As<Store.Production.ProductionDomainEntities.IProductionFactory>();
+            builder.RegisterType<Store.Production.ProductionDomainServices.RealPhonesSupplier>().As<Store.Production.ProductionDomainServices.IPhoneSupplier>().WithParameter(ResolvedParameter.ForNamed< Store.Production.ProductionDomainServices.IAdministratorNotifier>("PhoneNotifier"));
+            builder.RegisterType<Store.Production.ProductionDomainServices.LegalImportFeeCalculator>().As<Store.Production.ProductionDomainServices.IImportFeeCalculator>();
+            builder.RegisterType<Store.Production.ProductionFacadeService.ProductionFacadeImplementation>().As<Store.Production.ProductionFacadeService.IProductionFacade>().WithParameter(ResolvedParameter.ForNamed<Store.Production.ProductionDomainServices.IAdministratorNotifier>("EmailNotifier"));
+            builder.RegisterType<Store.Production.ProductionRepository.InMemoryPhoneRepository>().As<Store.Production.ProductionFacadeService.IPhoneRepository>();
+            builder.RegisterType<Store.Production.ProductionRepository.InMemoryWarehouseRepository>().As<Store.Production.ProductionFacadeService.IWarehouseRepository>();
+            builder.RegisterType<Store.Production.ProductionController.ProductionControllerImplementation>().As<Store.Production.ProductionController.IProductionController>();
+            builder.RegisterType<Store.IntegrationServices.PhoneAdministratorNotifier>().Named<Store.Production.ProductionDomainServices.IAdministratorNotifier>("PhoneNotifier");
+            builder.RegisterType<Store.IntegrationServices.EmailAdministratorNotifier>().Named<Store.Production.ProductionDomainServices.IAdministratorNotifier>("EmailNotifier");
+            builder.RegisterType<Store.Production.ProductionUI.ConsoleProductionUI>().AsSelf();
+
+            // registering marketing types
+            builder.RegisterType<Store.Marketing.MarketingDomainEntities.TVAdvertisment>().As<Store.Marketing.MarketingDomainEntities.IAdvertisment>();
+            builder.RegisterType<Store.Marketing.MarketingDomainEntities.TVCampaign>().As<Store.Marketing.MarketingDomainEntities.ICampaign>();
+            builder.RegisterType<Store.Marketing.MarketingDomainEntities.TVMarketingFactory>().As<Store.Marketing.MarketingDomainEntities.IMarketingFactory>();
+            builder.RegisterType<Store.Marketing.MarketingDomainServices.SwearWordFilter>().As<Store.Marketing.MarketingDomainServices.IAdvertismentFilter>();
+            builder.RegisterType<Store.Marketing.MarketingFacadeService.MarketingFacadeImplementation>().As<Store.Marketing.MarketingFacadeService.IMarketingFacade>();
+            builder.RegisterType<Store.Marketing.MarketingRepository.InMemoryAdvertismentRepository>().As<Store.Marketing.MarketingFacadeService.IAdvertismentRepository>();
+            builder.RegisterType<Store.Marketing.MarketingRepository.InMemoryCampaignRepository>().As<Store.Marketing.MarketingFacadeService.ICampaignRepository>();
+            builder.RegisterType<Store.Marketing.MarketingController.MarketingControllerImplementation>().As<Store.Marketing.MarketingController.IMarketingController>();
+            builder.RegisterType<Store.Marketing.MarketingUI.ConsoleMarketingUI>().AsSelf();
             return builder.Build();
             }
         }

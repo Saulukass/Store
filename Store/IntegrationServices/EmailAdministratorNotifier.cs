@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Store.IntegrationServices
     {
-    class EmailAdministratorNotifier : IAdministratorNotifier
+    public class EmailAdministratorNotifier : IAdministratorNotifier
         {
         public void NotifyAdministrator(string changes)
             {

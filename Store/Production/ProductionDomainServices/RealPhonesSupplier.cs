@@ -3,7 +3,7 @@ using Store.Production.ProductionDomainEntities;
 
 namespace Store.Production.ProductionDomainServices
     {
-    class RealPhonesSupplier : IPhoneSupplier
+    public class RealPhonesSupplier : IPhoneSupplier
         {
         IAdministratorNotifier administratorNotifier;
 
