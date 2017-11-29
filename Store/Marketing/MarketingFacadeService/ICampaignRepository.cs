@@ -4,7 +4,7 @@ namespace Store.Marketing.MarketingFacadeService
     {
     interface ICampaignRepository
         {
-        ICampaign Get(int campaignId);
+        ICampaign Find(int campaignId);
         int Save(ICampaign campaign);
         void Update(int campaignId, ICampaign campaign);
         void Delete(int campaignId);

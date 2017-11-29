@@ -17,7 +17,7 @@ namespace Store.Marketing.MarketingRepository
             return;
             }
 
-        public ICampaign Get(int campaignId)
+        public ICampaign Find(int campaignId)
             {
             if (null != instance)
                 return instance;

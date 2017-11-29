@@ -3,6 +3,9 @@
     interface IAdvertisment
         {
         string Message { get; set; }
-        int CampaignId { get; set; }
+
+        bool HasGraphics();
+        void ApplyNewCampaign(ICampaign campaign);
+        int GetDuration();
         }
     }

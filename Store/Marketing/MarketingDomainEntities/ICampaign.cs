@@ -3,6 +3,8 @@
     interface ICampaign
         {
         string Type { get; set; }
-        int Length { get; set; }
+        int AdLength { get; set; }
+
+        bool ShouldExtendAdvertisment();
         }
     }

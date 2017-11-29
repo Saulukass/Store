@@ -5,9 +5,13 @@ namespace Store.Marketing.MarketingDomainServices
     {
     class SwearWordFilter : IAdvertismentFilter
         {
+        static string[] s_badWords = { "BadWord", "SwearWord", "FWord" };
         public void FilterAdvertisment(IAdvertisment advertisment)
             {
-            // TODO
+            string messageToEdit = advertisment.Message;
+            foreach (string badWord in s_badWords)
+                messageToEdit.Replace(badWord, "");
+            advertisment.Message = messageToEdit;
             }
         }
     }

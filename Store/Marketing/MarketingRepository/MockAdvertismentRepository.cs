@@ -12,7 +12,7 @@ namespace Store.Marketing.MarketingRepository
             return;
             }
 
-        public IAdvertisment Get(int advertismentId)
+        public IAdvertisment Find(int advertismentId)
             {
             if (null != instance)
                 return instance;

@@ -2,7 +2,7 @@
     {
     interface IMarketingFactory
         {
-        IAdvertisment CreateAdvertisment(string message, int campaignId);
+        IAdvertisment CreateAdvertisment(string message);
         ICampaign CreateCampaign(int length, string type);
         }
     }

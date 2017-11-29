@@ -3,12 +3,25 @@
     class RadioAdvertisment : IAdvertisment
         {
         public string Message { get; set; }
-        public int CampaignId { get; set; }
 
-        public RadioAdvertisment(string message, int campaignId)
+        public RadioAdvertisment(string message)
             {
             Message = message;
-            CampaignId = campaignId;
+            }
+
+        public bool HasGraphics()
+            {
+            return false;
+            }
+
+        public void ApplyNewCampaign(ICampaign campaign)
+            {
+            return;
+            }
+
+        public int GetDuration()
+            {
+            return 100;
             }
         }
     }

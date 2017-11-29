@@ -20,20 +20,32 @@ namespace Store.Marketing.MarketingFacadeService
 
         public int AddAdvertisment(int campaignId, string message)
             {
-            // TODO
-            return 1;
+            ICampaign campaign = campaigns.Find(campaignId);
+            if (null == campaign)
+                return -1;
+
+            IAdvertisment advertisment = marketingFactory.CreateAdvertisment(message);
+            advertisment.ApplyNewCampaign(campaign);
+            filter.FilterAdvertisment(advertisment);
+            int advertismentId = advertisments.Save(advertisment);
+            return 0;
             }
 
         public int AddCampaign(int length, string type)
             {
-            // TODO
-            return 1;
+            ICampaign newCampaign = marketingFactory.CreateCampaign(length, type);
+            int campaignId = campaigns.Save(newCampaign);
+            return campaignId;
             }
 
         public int CancelAdvertisment(int advertismentId)
             {
-            // TODO
-            return 1;
+            IAdvertisment toDelete = advertisments.Find(advertismentId);
+            if (null == toDelete)
+                return -1;
+
+            advertisments.Delete(advertismentId);
+            return advertismentId;
             }
         }
     }

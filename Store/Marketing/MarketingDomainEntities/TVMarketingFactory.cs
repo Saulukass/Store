@@ -2,9 +2,9 @@
     {
     class TVMarketingFactory : IMarketingFactory
         {
-        public IAdvertisment CreateAdvertisment(string message, int campaignId)
+        public IAdvertisment CreateAdvertisment(string message)
             {
-            return new TVAdvertisment(message, campaignId);
+            return new TVAdvertisment(message);
             }
 
         public ICampaign CreateCampaign(int length, string type)

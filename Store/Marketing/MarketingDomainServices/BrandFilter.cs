@@ -7,7 +7,9 @@ namespace Store.Marketing.MarketingDomainServices
         {
         public void FilterAdvertisment(IAdvertisment advertisment)
             {
-            // TODO
+            string toEdit = advertisment.Message;
+
+            // currently we don't filter other brands
             }
         }
     }

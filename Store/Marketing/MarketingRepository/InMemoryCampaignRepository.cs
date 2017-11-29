@@ -14,9 +14,11 @@ namespace Store.Marketing.MarketingRepository
             storage.Remove(campaignId);
             }
 
-        public ICampaign Get(int campaignId)
+        public ICampaign Find(int campaignId)
             {
-            return storage[campaignId];
+            if (storage.ContainsKey(campaignId))
+                return storage[campaignId];
+            return null;
             }
 
         public int Save(ICampaign campaign)
@@ -28,7 +30,8 @@ namespace Store.Marketing.MarketingRepository
 
         public void Update(int campaignId, ICampaign campaign)
             {
-            storage[campaignId] = campaign;
+            if (storage.ContainsKey(campaignId))
+                storage[campaignId] = campaign;
             }
         }
     }
