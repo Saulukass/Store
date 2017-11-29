@@ -5,6 +5,13 @@ namespace Store.Production.ProductionDomainServices
     {
     class RealPhonesSupplier : IPhoneSupplier
         {
+        IAdministratorNotifier administratorNotifier;
+
+        public RealPhonesSupplier(IAdministratorNotifier administratorNotifier)
+            {
+            this.administratorNotifier = administratorNotifier;
+            }
+
         public void SupplyPhonesToWarehouse(IPhone phone, IWarehouse warehouse)
             {
             int baseModelQuantity = 150;
@@ -17,6 +24,8 @@ namespace Store.Production.ProductionDomainServices
                 baseModelQuantity *= 2;
 
             warehouse.StorePhone(phone, baseModelQuantity);
+            administratorNotifier.NotifyAdministrator("" + baseModelQuantity + " new phones: " + phone.PhoneName +
+                " was stored in warehouse at: " + warehouse.Location);
             }
         }
     }

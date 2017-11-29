@@ -12,15 +12,17 @@ namespace Store.Production.ProductionFacadeService
         IImportFeeCalculator importCalculator;
         IProductionFactory productionFactory;
         IPhoneSupplier phoneSupplier;
+        IAdministratorNotifier administratorNotifier;
 
         public ProductionFacadeImplementation(IPhoneRepository phones, IWarehouseRepository warehouses, IImportFeeCalculator importCalculator,
-            IProductionFactory productionFactory, IPhoneSupplier phoneSupplier)
+            IProductionFactory productionFactory, IPhoneSupplier phoneSupplier, IAdministratorNotifier administratorNotifier)
             {
             this.phones = phones;
             this.warehouses = warehouses;
             this.importCalculator = importCalculator;
             this.productionFactory = productionFactory;
             this.phoneSupplier = phoneSupplier;
+            this.administratorNotifier = administratorNotifier;
             }
 
         public int AddPhone(string phoneName, int warehouseId)
@@ -64,6 +66,7 @@ namespace Store.Production.ProductionFacadeService
         public int OpenWarehouse(string location, int capacity)
             {
             IWarehouse newWarehouse = productionFactory.CreateWarehouse(location, capacity);
+            administratorNotifier.NotifyAdministrator("New ware house was opened at " + location + "\n Capacity of new factory is " + capacity);
             int warehouseId = warehouses.Save(newWarehouse);
             return warehouseId;
             }

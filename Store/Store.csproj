@@ -53,6 +53,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IntegrationServices\CheapEmailService.cs" />
+    <Compile Include="IntegrationServices\EmailAdministratorNotifier.cs" />
+    <Compile Include="IntegrationServices\PhoneAdministratorNotifier.cs" />
     <Compile Include="IntegrationServices\ReliableEmailService.cs" />
     <Compile Include="Marketing\MarketingController\IMarketingController.cs" />
     <Compile Include="Marketing\MarketingController\MarketingControllerImplementation.cs" />
@@ -90,6 +92,7 @@
     <Compile Include="Production\ProductionDomainEntities\LocalProductionFactory.cs" />
     <Compile Include="Production\ProductionDomainEntities\LocalWarehouse.cs" />
     <Compile Include="Production\ProductionDomainServices\DemoPhonesSupplier.cs" />
+    <Compile Include="Production\ProductionDomainServices\IAdministratorNotifier.cs" />
     <Compile Include="Production\ProductionDomainServices\IImportFeeCalculator.cs" />
     <Compile Include="Production\ProductionDomainServices\IllegalImportFeeCalculator.cs" />
     <Compile Include="Production\ProductionDomainServices\IPhoneSupplier.cs" />
