@@ -7,7 +7,7 @@ namespace Store.IntegrationServices
         {
         public void SendEmail(string to, string body)
             {
-            Console.WriteLine("Sending email to: " + to + "\n" +
+            Console.WriteLine("[" + this.GetType().ToString() + "]" + " Sending email to: " + to + "\n" +
                 "Message:" + body);
             Console.WriteLine("Email might not reach destination. Try using other services.");
             }

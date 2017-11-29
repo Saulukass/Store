@@ -11,7 +11,7 @@ namespace Store.IntegrationServices
         {
         public void NotifyAdministrator(string changes)
             {
-            Console.WriteLine(this.GetType().ToString() + "  Notifying administrator about: " + changes);
+            Console.WriteLine("[" + this.GetType().ToString() + "]" + "  Notifying administrator about: " + changes);
             }
         }
     }

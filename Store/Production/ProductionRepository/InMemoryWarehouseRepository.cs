@@ -1,6 +1,7 @@
 ﻿using Store.Production.ProductionFacadeService;
 using System.Collections.Generic;
 using Store.Production.ProductionDomainEntities;
+using System;
 
 namespace Store.Production.ProductionRepository
     {
@@ -16,11 +17,13 @@ namespace Store.Production.ProductionRepository
 
         public void Delete(int warehouseId)
             {
+            Console.WriteLine("[" + this.GetType().ToString() + "]" + " Deleting warehouse");
             storage.Remove(warehouseId);
             }
 
         public int Save(IWarehouse warehouse)
             {
+            Console.WriteLine("[" + this.GetType().ToString() + "]" + " Saving warehouse");
             int newId = ++id;
             storage.Add(newId, warehouse);
             return newId;
@@ -28,11 +31,13 @@ namespace Store.Production.ProductionRepository
 
         public void Update(int warehouseId, IWarehouse warehouse)
             {
+            Console.WriteLine("[" + this.GetType().ToString() + "]" + " Updating warehouse");
             storage[warehouseId] = warehouse;
             }
 
         public IWarehouse Find(int warehouseId)
             {
+            Console.WriteLine("[" + this.GetType().ToString() + "]" + " Looking for warehouse");
             if (storage.ContainsKey(warehouseId))
                 return storage[warehouseId];
             return null;
@@ -40,6 +45,7 @@ namespace Store.Production.ProductionRepository
 
         public IEnumerator<IWarehouse> GetAll()
             {
+            Console.WriteLine("[" + this.GetType().ToString() + "]" + " Getting all warehouses");
             return storage.Values.GetEnumerator();
             }
         }

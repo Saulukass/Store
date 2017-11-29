@@ -7,9 +7,7 @@ namespace Store.Marketing.MarketingDomainServices
         {
         public void FilterAdvertisment(IAdvertisment advertisment)
             {
-            string toEdit = advertisment.Message;
-
-            // currently we don't filter other brands
+            Console.WriteLine("[" + this.GetType().ToString() + "]" + " Filtering advertisment from other brands mentioning");
             }
         }
     }

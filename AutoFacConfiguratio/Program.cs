@@ -10,7 +10,7 @@ namespace AutoFacConfiguration
         static void Main(string[] args)
             {
             bool running = true;
-            IContainer container = GetSecondVersion();
+            IContainer container = GetAutoWiredApp();
             using (var scope = container.BeginLifetimeScope())
                 {
                 Store.Sales.SalesUI.ConsoleSalesUI salesUi = scope.Resolve<Store.Sales.SalesUI.ConsoleSalesUI>();
@@ -19,6 +19,7 @@ namespace AutoFacConfiguration
 
                 do
                     {
+                    Console.Clear();
                     Console.WriteLine(GetMenuMessage());
                     string choise = Console.ReadLine();
 
@@ -69,7 +70,7 @@ namespace AutoFacConfiguration
 
         static String GetMenuMessage()
             {
-            return "\n\nSales:\n" +
+            return "Sales:\n" +
                     "  1 - Register new customer\n" +
                     "  2 - Place new order\n" +
                     "  3 - Cancel order\n" +

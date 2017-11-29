@@ -7,6 +7,7 @@ namespace Store.Production.ProductionDomainServices
         {
         public int CalculateImportFee(IWarehouse warehouse, string destination)
             {
+            Console.WriteLine("[" + this.GetType().ToString() + "]" + " Calculating fee for importing phone legally");
             int baseImportFee = 250;
             if (!destination.Equals(warehouse.Location))
                 baseImportFee += new Random().Next(100, 301);

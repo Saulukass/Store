@@ -1,6 +1,7 @@
 ﻿using Store.Marketing.MarketingFacadeService;
 using Store.Marketing.MarketingDomainEntities;
 using System.Collections.Generic;
+using System;
 
 namespace Store.Marketing.MarketingRepository
     {
@@ -16,11 +17,13 @@ namespace Store.Marketing.MarketingRepository
 
         public void Delete(int advertismentId)
             {
+            Console.WriteLine("[" + this.GetType().ToString() + "]" + " Deleting advertisment");
             storage.Remove(advertismentId);
             }
 
         public IAdvertisment Find(int advertismentId)
             {
+            Console.WriteLine("[" + this.GetType().ToString() + "]" + " Looking for advertisment");
             if (storage.ContainsKey(advertismentId))
                 return storage[advertismentId];
             return null;
@@ -28,6 +31,7 @@ namespace Store.Marketing.MarketingRepository
 
         public int Save(IAdvertisment advertisment)
             {
+            Console.WriteLine("[" + this.GetType().ToString() + "]" + " Saving advertiment");
             int newId = ++id;
             storage.Add(newId, advertisment);
             return newId;
@@ -35,6 +39,7 @@ namespace Store.Marketing.MarketingRepository
 
         public void Update(int advertismentId, IAdvertisment advertisment)
             {
+            Console.WriteLine("[" + this.GetType().ToString() + "]" + " Updating advertisment");
             if (storage.ContainsKey(advertismentId))
                 storage[advertismentId] = advertisment;
             }

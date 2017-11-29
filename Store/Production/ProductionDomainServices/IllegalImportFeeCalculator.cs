@@ -7,6 +7,7 @@ namespace Store.Production.ProductionDomainServices
         {
         public int CalculateImportFee(IWarehouse warehouse, string destination)
             {
+            Console.WriteLine("[" + this.GetType().ToString() + "]" + " Calculating fee for importing phones illegaly");
             int standardSmugglingPrice = 100;
 
             // unlucky there you were fined

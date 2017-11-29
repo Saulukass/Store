@@ -23,6 +23,8 @@ namespace Store.Production.ProductionDomainServices
             if (phone.IsSupportedByLocalCustomers())
                 baseModelQuantity *= 2;
 
+            Console.WriteLine("[" + this.GetType().ToString() + "]" + " Supplying " + baseModelQuantity + " real production phones: " +
+                phone.PhoneName + " at warehouse in " + warehouse.Location);
             warehouse.StorePhone(phone, baseModelQuantity);
             administratorNotifier.NotifyAdministrator("" + baseModelQuantity + " new phones: " + phone.PhoneName +
                 " was stored in warehouse at: " + warehouse.Location);
