@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{A646DDE5-A2A4-4724-8DE0-53D72945CD26}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>Library</OutputType>
     <RootNamespace>Store</RootNamespace>
     <AssemblyName>Store</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
@@ -30,6 +30,9 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Autofac, Version=4.6.2.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
@@ -102,7 +105,6 @@
     <Compile Include="Production\ProductionRepository\MockWarehouseRepository.cs" />
     <Compile Include="Production\ProductionUI\ConsoleProductionUI.cs" />
     <Compile Include="Production\ProductionUI\IProductionUI.cs" />
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sales\SalesDomainEntities\DiscountedOrder.cs" />
     <Compile Include="Sales\SalesDomainEntities\DiscountedSalesFactory.cs" />
