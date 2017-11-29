@@ -16,12 +16,14 @@ namespace Store.Production.ProductionFacadeService
         IProductionFactory productionFactory;
         IPhoneSupplier phoneSupplier;
 
-        public ProductionFacadeImplementation(IPhoneRepository phones, IWarehouseRepository warehouses, IImportFeeCalculator importCalculator, IProductionFactory productionFactory)
+        public ProductionFacadeImplementation(IPhoneRepository phones, IWarehouseRepository warehouses, IImportFeeCalculator importCalculator,
+            IProductionFactory productionFactory, IPhoneSupplier phoneSupplier)
             {
             this.phones = phones;
             this.warehouses = warehouses;
             this.importCalculator = importCalculator;
             this.productionFactory = productionFactory;
+            this.phoneSupplier = phoneSupplier;
             }
 
         public int AddPhone(string phoneName, int warehouseId)

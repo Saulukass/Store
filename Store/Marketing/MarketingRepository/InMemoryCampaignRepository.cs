@@ -9,6 +9,11 @@ namespace Store.Marketing.MarketingRepository
         Dictionary<int, ICampaign> storage;
         static int id = 0;
 
+        public InMemoryCampaignRepository()
+            {
+            storage = new Dictionary<int, ICampaign>();
+            }
+
         public void Delete(int campaignId)
             {
             storage.Remove(campaignId);

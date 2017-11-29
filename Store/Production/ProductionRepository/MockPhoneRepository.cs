@@ -5,7 +5,7 @@ namespace Store.Production.ProductionRepository
     {
     class MockPhoneRepository : IPhoneRepository
         {
-        IPhone instance;
+        IPhone instance = null;
 
         public void Delete(int phoneId)
             {

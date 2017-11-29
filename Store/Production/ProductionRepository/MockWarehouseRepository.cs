@@ -6,7 +6,7 @@ namespace Store.Production.ProductionRepository
     {
     class MockWarehouseRepository : IWarehouseRepository
         {
-        IWarehouse instance;
+        IWarehouse instance = null;
 
         public void Delete(int warehouseId)
             {

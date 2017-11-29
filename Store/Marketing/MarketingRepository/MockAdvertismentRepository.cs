@@ -5,7 +5,7 @@ namespace Store.Marketing.MarketingRepository
     {
     class MockAdvertismentRepository : IAdvertismentRepository
         {
-        IAdvertisment instance;
+        IAdvertisment instance = null;
 
         public void Delete(int advertismentId)
             {

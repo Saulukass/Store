@@ -9,6 +9,11 @@ namespace Store.Sales.SalesRepository
         Dictionary<int, IOrder> storage;
         static int id = 0;
 
+        public InMemoryOrderRepository()
+            {
+            storage = new Dictionary<int, IOrder>();
+            }
+
         public void Delete(int orderId)
             {
             storage.Remove(id);

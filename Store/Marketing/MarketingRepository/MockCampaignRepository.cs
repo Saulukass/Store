@@ -10,7 +10,7 @@ namespace Store.Marketing.MarketingRepository
     {
     class MockCampaignRepository : ICampaignRepository
         {
-        ICampaign instance;
+        ICampaign instance = null;
 
         public void Delete(int campaignId)
             {

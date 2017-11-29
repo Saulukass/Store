@@ -12,6 +12,7 @@ namespace Store.Production.ProductionDomainEntities
             {
             Location = location;
             Capacity = capacity;
+            _phoneStorage = new Dictionary<IPhone, int>();
             }
 
         public void StorePhone(IPhone phone, int quantity)

@@ -5,7 +5,8 @@ namespace Store.Sales.SalesRepository
     {
     class MockCustomerRepository : ICustomerRepository
         {
-        ICustomer instance;
+        ICustomer instance = null;
+
         public void Delete(int customerId)
             {
             return;

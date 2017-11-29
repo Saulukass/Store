@@ -9,6 +9,11 @@ namespace Store.Production.ProductionRepository
         Dictionary<int, IWarehouse> storage;
         static int id = 0;
 
+        public InMemoryWarehouseRepository()
+            {
+            storage = new Dictionary<int, IWarehouse>();
+            }
+
         public void Delete(int warehouseId)
             {
             storage.Remove(warehouseId);

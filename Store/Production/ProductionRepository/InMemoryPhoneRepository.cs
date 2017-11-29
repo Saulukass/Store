@@ -9,6 +9,11 @@ namespace Store.Production.ProductionRepository
         Dictionary<int, IPhone> storage;
         static int id = 0;
 
+        public InMemoryPhoneRepository()
+            {
+            storage = new Dictionary<int, IPhone>();
+            }
+
         public void Delete(int phoneId)
             {
             storage.Remove(phoneId);
