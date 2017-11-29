@@ -4,7 +4,7 @@ using Store.Marketing.MarketingDomainEntities;
 
 namespace Store.Marketing.MarketingRepository
     {
-    class InMemoryCampaignRepository : ICampaignRepository
+    public class InMemoryCampaignRepository : ICampaignRepository
         {
         Dictionary<int, ICampaign> storage;
         static int id = 0;

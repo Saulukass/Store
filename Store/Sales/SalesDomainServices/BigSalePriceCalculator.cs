@@ -3,7 +3,7 @@ using System;
 
 namespace Store.Sales.SalesDomainServices
     {
-    class BigSalePriceCalculator : IOrderPriceCalculator
+    public class BigSalePriceCalculator : IOrderPriceCalculator
         {
         public int CalculatePrice(ICustomer customer)
             {

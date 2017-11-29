@@ -1,6 +1,6 @@
 ﻿namespace Store.Sales.SalesDomainEntities
     {
-    interface IOrder
+    public interface IOrder
         {
         string PhoneName { get; set; }
         int CustomerId { get; set; }

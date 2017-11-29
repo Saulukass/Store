@@ -2,7 +2,7 @@
 
 namespace Store.Production.ProductionDomainServices
     {
-    interface IImportFeeCalculator
+    public interface IImportFeeCalculator
         {
         int CalculateImportFee(IWarehouse warehouse, string destination);
         }

@@ -2,7 +2,7 @@
 
 namespace Store.Production.ProductionDomainEntities
     {
-    class AbroadWarehouse : IWarehouse
+    public class AbroadWarehouse : IWarehouse
         {
         public string Location { get; set; }
         public int Capacity { get; set; }

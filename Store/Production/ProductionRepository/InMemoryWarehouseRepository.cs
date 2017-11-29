@@ -4,7 +4,7 @@ using Store.Production.ProductionDomainEntities;
 
 namespace Store.Production.ProductionRepository
     {
-    class InMemoryWarehouseRepository : IWarehouseRepository
+    public class InMemoryWarehouseRepository : IWarehouseRepository
         {
         Dictionary<int, IWarehouse> storage;
         static int id = 0;

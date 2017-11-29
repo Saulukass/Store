@@ -2,7 +2,7 @@
 
 namespace Store.Marketing.MarketingDomainServices
     {
-    interface IAdvertismentFilter
+    public interface IAdvertismentFilter
         {
         void FilterAdvertisment(IAdvertisment advertisment);
         }

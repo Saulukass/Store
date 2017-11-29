@@ -1,6 +1,6 @@
 ﻿namespace Store.Production.ProductionDomainEntities
     {
-    interface IPhone
+    public interface IPhone
         {
         string PhoneName { get; set; }
         int Popularity { get; }

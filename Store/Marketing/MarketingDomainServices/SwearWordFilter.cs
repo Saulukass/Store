@@ -3,7 +3,7 @@ using Store.Marketing.MarketingDomainEntities;
 
 namespace Store.Marketing.MarketingDomainServices
     {
-    class SwearWordFilter : IAdvertismentFilter
+    public class SwearWordFilter : IAdvertismentFilter
         {
         static string[] s_badWords = { "BadWord", "SwearWord", "FWord" };
         public void FilterAdvertisment(IAdvertisment advertisment)

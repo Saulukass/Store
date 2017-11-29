@@ -1,6 +1,6 @@
 ﻿namespace Store.Sales.SalesDomainEntities
     {
-    class LoyalCustomer : ICustomer
+    public class LoyalCustomer : ICustomer
         {
         public string Name { get; set; }
         public string Surname { get; set; }

@@ -1,6 +1,6 @@
 ﻿namespace Store.Marketing.MarketingDomainEntities
     {
-    interface ICampaign
+    public interface ICampaign
         {
         string Type { get; set; }
         int AdLength { get; set; }

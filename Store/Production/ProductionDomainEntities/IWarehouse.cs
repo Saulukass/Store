@@ -1,6 +1,6 @@
 ﻿namespace Store.Production.ProductionDomainEntities
     {
-    interface IWarehouse
+    public interface IWarehouse
         {
         string Location { get; set; }
         int Capacity { get; set; }

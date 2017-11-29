@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Store.Sales.SalesRepository
     {
-    class InMemoryOrderRepository : IOrderRepository
+    public class InMemoryOrderRepository : IOrderRepository
         {
         Dictionary<int, IOrder> storage;
         static int id = 0;

@@ -2,13 +2,10 @@
 using Store.Production.ProductionDomainServices;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Store.Production.ProductionFacadeService
     {
-    class ProductionFacadeImplementation : IProductionFacade
+    public class ProductionFacadeImplementation : IProductionFacade
         {
         IPhoneRepository phones;
         IWarehouseRepository warehouses;

@@ -2,7 +2,7 @@
 
 namespace Store.Sales.SalesDomainServices
     {
-    class RegularPriceCalculator : IOrderPriceCalculator
+    public class RegularPriceCalculator : IOrderPriceCalculator
         {
         public int CalculatePrice(ICustomer customer)
             {

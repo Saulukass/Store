@@ -1,6 +1,6 @@
 ﻿namespace Store.Sales.SalesFacadeService
     {
-    interface IEmailSender
+    public interface IEmailSender
         {
         void SendEmail(string to, string body);
         }

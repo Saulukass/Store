@@ -2,7 +2,7 @@
 
 namespace Store.Sales.SalesDomainServices
     {
-    interface IOrderPriceCalculator
+    public interface IOrderPriceCalculator
         {
         int CalculatePrice(ICustomer customer);
         }

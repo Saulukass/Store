@@ -2,7 +2,7 @@
 
 namespace Store.Sales.SalesFacadeService
     {
-    interface ICustomerRepository
+    public interface ICustomerRepository
         {
         int Save(ICustomer customer);
         ICustomer Find(int customerId);

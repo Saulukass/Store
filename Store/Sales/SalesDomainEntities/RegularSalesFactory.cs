@@ -1,6 +1,6 @@
 ﻿namespace Store.Sales.SalesDomainEntities
     {
-    class RegularSalesFactory : ISalesFactory
+    public class RegularSalesFactory : ISalesFactory
         {
         public ICustomer CreateCustomer(string name, string surname, string email)
             {

@@ -1,6 +1,6 @@
 ﻿namespace Store.Sales.SalesDomainEntities
     {
-    class RegularCustomer : ICustomer
+    public class RegularCustomer : ICustomer
         {
         public string Name { get; set; }
         public string Surname { get; set; }

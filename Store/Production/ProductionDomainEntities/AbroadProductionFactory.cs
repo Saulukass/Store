@@ -1,6 +1,6 @@
 ﻿namespace Store.Production.ProductionDomainEntities
     {
-    class AbroadProductionFactory : IProductionFactory
+    public class AbroadProductionFactory : IProductionFactory
         {
         public IPhone CreatePhone(string phoneName)
             {

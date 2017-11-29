@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Store.Marketing.MarketingController
     {
-    interface IMarketingController
+    public interface IMarketingController
         {
         int AddAdvertisment(int campaignId, string message);
         int AddCampaign(int length, string type);

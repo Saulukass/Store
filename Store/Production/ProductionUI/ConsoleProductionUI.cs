@@ -3,7 +3,7 @@ using System;
 
 namespace Store.Production.ProductionUI
     {
-    class ConsoleProductionUI : IProductionUI
+    public class ConsoleProductionUI : IProductionUI
         {
         IProductionController controller;
 

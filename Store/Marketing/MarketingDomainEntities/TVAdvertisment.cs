@@ -1,6 +1,6 @@
 ﻿namespace Store.Marketing.MarketingDomainEntities
     {
-    class TVAdvertisment : IAdvertisment
+    public class TVAdvertisment : IAdvertisment
         {
         private ICampaign _currentCampaign;
         public string Message { get; set; }

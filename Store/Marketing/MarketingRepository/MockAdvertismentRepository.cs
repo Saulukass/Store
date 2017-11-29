@@ -3,7 +3,7 @@ using Store.Marketing.MarketingDomainEntities;
 
 namespace Store.Marketing.MarketingRepository
     {
-    class MockAdvertismentRepository : IAdvertismentRepository
+    public class MockAdvertismentRepository : IAdvertismentRepository
         {
         IAdvertisment instance = null;
 

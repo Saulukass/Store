@@ -3,7 +3,7 @@ using Store.Sales.SalesDomainEntities;
 
 namespace Store.Sales.SalesRepository
     {
-    class MockCustomerRepository : ICustomerRepository
+    public class MockCustomerRepository : ICustomerRepository
         {
         ICustomer instance = null;
 

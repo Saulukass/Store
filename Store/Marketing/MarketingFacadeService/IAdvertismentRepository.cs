@@ -2,7 +2,7 @@
 
 namespace Store.Marketing.MarketingFacadeService
     {
-    interface IAdvertismentRepository
+    public interface IAdvertismentRepository
         {
         IAdvertisment Find(int advertismentId);
         int Save(IAdvertisment advertisment);

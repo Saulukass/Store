@@ -1,6 +1,6 @@
 ﻿namespace Store.Marketing.MarketingDomainEntities
     {
-    class RadioMarketingFactory : IMarketingFactory
+    public class RadioMarketingFactory : IMarketingFactory
         {
         public IAdvertisment CreateAdvertisment(string message)
             {

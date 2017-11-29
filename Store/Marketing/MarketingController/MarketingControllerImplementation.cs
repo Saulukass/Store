@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Store.Marketing.MarketingController
     {
-    class MarketingControllerImplementation : IMarketingController
+    public class MarketingControllerImplementation : IMarketingController
         {
         IMarketingFacade facade;
 

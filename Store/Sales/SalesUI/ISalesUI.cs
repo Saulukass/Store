@@ -1,6 +1,6 @@
 ﻿namespace Store.Sales.SalesUI
     {
-    interface ISalesUI
+    public interface ISalesUI
         {
         void RegisterCustomer();
         void PlaceOrder();

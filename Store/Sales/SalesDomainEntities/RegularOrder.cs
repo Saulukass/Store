@@ -1,6 +1,6 @@
 ﻿namespace Store.Sales.SalesDomainEntities
     {
-    class RegularOrder : IOrder
+    public class RegularOrder : IOrder
         {
         public string PhoneName { get; set; }
         public int CustomerId { get; set; }

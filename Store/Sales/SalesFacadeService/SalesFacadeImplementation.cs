@@ -4,7 +4,7 @@ using System;
 
 namespace Store.Sales.SalesFacadeService
     {
-    class SalesFacadeImplementation : ISalesFacade
+    public class SalesFacadeImplementation : ISalesFacade
         {
         ICustomerRepository customers;
         IOrderRepository orders;

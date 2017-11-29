@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Store.Production.ProductionUI
     {
-    interface IProductionUI
+    public interface IProductionUI
         {
         void OpenWarehouse();
         void GetPhoneQuantity();

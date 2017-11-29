@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Store.Production.ProductionFacadeService
     {
-    interface IWarehouseRepository
+    public interface IWarehouseRepository
         {
         IWarehouse Find(int warehouseId);
         IEnumerator<IWarehouse> GetAll();

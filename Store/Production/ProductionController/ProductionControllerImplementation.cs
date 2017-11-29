@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Store.Production.ProductionController
     {
-    class ProductionControllerImplementation : IProductionController
+    public class ProductionControllerImplementation : IProductionController
         {
         IProductionFacade facade;
 

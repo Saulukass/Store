@@ -2,7 +2,7 @@
 
 namespace Store.Production.ProductionDomainEntities
     {
-    class AbroadPhone : IPhone
+    public class AbroadPhone : IPhone
         {
         public string PhoneName { get; set; }
 

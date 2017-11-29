@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Store.Production.ProductionRepository
     {
-    class InMemoryPhoneRepository : IPhoneRepository
+    public class InMemoryPhoneRepository : IPhoneRepository
         {
         Dictionary<int, IPhone> storage;
         static int id = 0;

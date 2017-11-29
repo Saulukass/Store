@@ -1,6 +1,6 @@
 ﻿namespace Store.Marketing.MarketingDomainEntities
     {
-    interface IAdvertisment
+    public interface IAdvertisment
         {
         string Message { get; set; }
 

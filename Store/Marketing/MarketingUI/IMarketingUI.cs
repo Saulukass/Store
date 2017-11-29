@@ -1,6 +1,6 @@
 ﻿namespace Store.Marketing.MarketingUI
     {
-    interface IMarketingUI
+    public interface IMarketingUI
         {
         void AddAdvertisment();
         void AddCampaign();

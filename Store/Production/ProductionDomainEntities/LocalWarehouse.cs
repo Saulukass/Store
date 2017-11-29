@@ -2,7 +2,7 @@
 
 namespace Store.Production.ProductionDomainEntities
     {
-    class LocalWarehouse : IWarehouse
+    public class LocalWarehouse : IWarehouse
         {
         private Dictionary<IPhone, int> _phoneStorage;
         public string Location { get; set; }

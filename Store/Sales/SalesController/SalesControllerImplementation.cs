@@ -2,7 +2,7 @@
 
 namespace Store.Sales.SalesController
     {
-    class SalesControllerImplementation : ISalesController
+    public class SalesControllerImplementation : ISalesController
         {
         ISalesFacade salesFacade;
 

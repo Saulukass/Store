@@ -2,7 +2,7 @@
 
 namespace Store.Production.ProductionFacadeService
     {
-    interface IPhoneRepository
+    public interface IPhoneRepository
         {
         IPhone Find(int phoneId);
         int Save(IPhone phone);

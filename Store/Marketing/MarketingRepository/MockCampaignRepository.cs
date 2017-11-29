@@ -8,7 +8,7 @@ using Store.Marketing.MarketingDomainEntities;
 
 namespace Store.Marketing.MarketingRepository
     {
-    class MockCampaignRepository : ICampaignRepository
+    public class MockCampaignRepository : ICampaignRepository
         {
         ICampaign instance = null;
 

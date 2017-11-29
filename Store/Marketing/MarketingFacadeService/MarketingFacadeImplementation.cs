@@ -3,7 +3,7 @@ using Store.Marketing.MarketingDomainServices;
 
 namespace Store.Marketing.MarketingFacadeService
     {
-    class MarketingFacadeImplementation : IMarketingFacade
+    public class MarketingFacadeImplementation : IMarketingFacade
         {
         IAdvertismentRepository advertisments;
         ICampaignRepository campaigns;

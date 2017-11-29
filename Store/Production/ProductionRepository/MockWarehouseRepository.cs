@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Store.Production.ProductionRepository
     {
-    class MockWarehouseRepository : IWarehouseRepository
+    public class MockWarehouseRepository : IWarehouseRepository
         {
         IWarehouse instance = null;
 

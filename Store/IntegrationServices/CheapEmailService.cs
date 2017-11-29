@@ -3,7 +3,7 @@ using System;
 
 namespace Store.IntegrationServices
     {
-    class CheapEmailService : IEmailSender
+    public class CheapEmailService : IEmailSender
         {
         public void SendEmail(string to, string body)
             {

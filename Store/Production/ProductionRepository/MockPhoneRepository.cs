@@ -3,7 +3,7 @@ using Store.Production.ProductionDomainEntities;
 
 namespace Store.Production.ProductionRepository
     {
-    class MockPhoneRepository : IPhoneRepository
+    public class MockPhoneRepository : IPhoneRepository
         {
         IPhone instance = null;
 

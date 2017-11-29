@@ -2,7 +2,7 @@
 
 namespace Store.Marketing.MarketingFacadeService
     {
-    interface ICampaignRepository
+    public interface ICampaignRepository
         {
         ICampaign Find(int campaignId);
         int Save(ICampaign campaign);

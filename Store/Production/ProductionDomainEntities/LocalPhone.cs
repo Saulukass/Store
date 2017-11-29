@@ -2,7 +2,7 @@
 
 namespace Store.Production.ProductionDomainEntities
     {
-    class LocalPhone : IPhone
+    public class LocalPhone : IPhone
         {
         public string PhoneName { get; set; }
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Store.Production.ProductionController
     {
-    interface IProductionController
+    public interface IProductionController
         {
         int OpenWarehouse(string location, int capacity);
         int GetPhoneQuantity(int phoneId);

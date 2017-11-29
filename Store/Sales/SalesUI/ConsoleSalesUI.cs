@@ -3,7 +3,7 @@ using System;
 
 namespace Store.Sales.SalesUI
     {
-    class ConsoleSalesUI : ISalesUI
+    public class ConsoleSalesUI : ISalesUI
         {
         ISalesController controller;
 

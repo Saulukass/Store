@@ -3,7 +3,7 @@ using System;
 
 namespace Store.Production.ProductionDomainServices
     {
-    class LegalImportFeeCalculator : IImportFeeCalculator
+    public class LegalImportFeeCalculator : IImportFeeCalculator
         {
         public int CalculateImportFee(IWarehouse warehouse, string destination)
             {

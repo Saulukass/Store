@@ -1,6 +1,6 @@
 ﻿namespace Store.Production.ProductionFacadeService
     {
-    interface IProductionFacade
+    public interface IProductionFacade
         {
         int OpenWarehouse(string location, int capacity);
         int GetPhoneQuantity(int phoneId);

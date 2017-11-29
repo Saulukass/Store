@@ -1,6 +1,6 @@
 ﻿namespace Store.Marketing.MarketingDomainEntities
     {
-    class RadioCampaign : ICampaign
+    public class RadioCampaign : ICampaign
         {
         public string Type { get; set; }
         public int AdLength { get; set; }
