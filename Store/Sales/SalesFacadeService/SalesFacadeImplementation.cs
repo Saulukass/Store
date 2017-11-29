@@ -24,11 +24,11 @@ namespace Store.Sales.SalesFacadeService
 
         public int CancelOrder(int orderId)
             {
-            IOrder toDelete = orders.FindOrder(orderId);
+            IOrder toDelete = orders.Find(orderId);
             if (null == toDelete)
                 return -1;
 
-            ICustomer customer = customers.FindCutomer(toDelete.CustomerId);
+            ICustomer customer = customers.Find(toDelete.CustomerId);
             if (null == customer)
                 return orderId;
 
@@ -39,7 +39,7 @@ namespace Store.Sales.SalesFacadeService
 
         public int PalceOrder(string phoneName, int customerId)
             {
-            ICustomer customer = customers.FindCutomer(customerId);
+            ICustomer customer = customers.Find(customerId);
             if (null == customer)
                 {
                 Console.WriteLine("Customer not found.");

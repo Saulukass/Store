@@ -14,7 +14,7 @@ namespace Store.Sales.SalesRepository
             storage.Remove(id);
             }
 
-        public ICustomer FindCutomer(int customerId)
+        public ICustomer Find(int customerId)
             {
             if (storage.ContainsKey(customerId))
                 return storage[id];

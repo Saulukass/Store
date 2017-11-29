@@ -11,7 +11,7 @@ namespace Store.Sales.SalesRepository
             return;
             }
 
-        public IOrder FindOrder(int id)
+        public IOrder Find(int id)
             {
             if (null != instance)
                 return instance;

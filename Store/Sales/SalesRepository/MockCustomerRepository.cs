@@ -11,7 +11,7 @@ namespace Store.Sales.SalesRepository
             return;
             }
 
-        public ICustomer FindCutomer(int customerId)
+        public ICustomer Find(int customerId)
             {
             if (null != instance)
                 return instance;

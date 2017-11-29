@@ -5,7 +5,7 @@ namespace Store.Sales.SalesFacadeService
     interface ICustomerRepository
         {
         int Save(ICustomer customer);
-        ICustomer FindCutomer(int customerId);
+        ICustomer Find(int customerId);
         void Update(int customerId, ICustomer customer);
         void Delete(int customerId);
         }

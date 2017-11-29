@@ -14,7 +14,7 @@ namespace Store.Sales.SalesRepository
             storage.Remove(id);
             }
 
-        public IOrder FindOrder(int orderId)
+        public IOrder Find(int orderId)
             {
             if (storage.ContainsKey(orderId))
                 return storage[id];
