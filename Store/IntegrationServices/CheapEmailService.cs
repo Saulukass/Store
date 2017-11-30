@@ -1,5 +1,4 @@
-﻿using Store.Sales.SalesFacadeService;
-using System;
+﻿using System;
 
 namespace Store.IntegrationServices
     {

@@ -1,6 +1,6 @@
 ﻿using Store.Marketing.MarketingDomainEntities;
 
-namespace Store.Marketing.MarketingFacadeService
+namespace Store.Marketing.MarketingRepository
     {
     public interface IAdvertismentRepository
         {

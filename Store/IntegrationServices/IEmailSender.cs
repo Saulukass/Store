@@ -1,4 +1,4 @@
-﻿namespace Store.Sales.SalesFacadeService
+﻿namespace Store.IntegrationServices
     {
     public interface IEmailSender
         {

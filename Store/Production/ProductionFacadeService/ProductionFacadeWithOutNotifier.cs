@@ -1,28 +1,27 @@
 ﻿using Store.Production.ProductionDomainEntities;
 using Store.Production.ProductionDomainServices;
+using Store.Production.ProductionRepository;
 using System;
 using System.Collections.Generic;
 
 namespace Store.Production.ProductionFacadeService
     {
-    public class ProductionFacadeImplementation : IProductionFacade
+    public class ProductionFacadeWithoutNotifier : IProductionFacade
         {
         IPhoneRepository phones;
         IWarehouseRepository warehouses;
         IImportFeeCalculator importCalculator;
         IProductionFactory productionFactory;
         IPhoneSupplier phoneSupplier;
-        IAdministratorNotifier administratorNotifier;
 
-        public ProductionFacadeImplementation(IPhoneRepository phones, IWarehouseRepository warehouses, IImportFeeCalculator importCalculator,
-            IProductionFactory productionFactory, IPhoneSupplier phoneSupplier, IAdministratorNotifier administratorNotifier)
+        public ProductionFacadeWithoutNotifier(IPhoneRepository phones, IWarehouseRepository warehouses, IImportFeeCalculator importCalculator,
+            IProductionFactory productionFactory, IPhoneSupplier phoneSupplier)
             {
             this.phones = phones;
             this.warehouses = warehouses;
             this.importCalculator = importCalculator;
             this.productionFactory = productionFactory;
             this.phoneSupplier = phoneSupplier;
-            this.administratorNotifier = administratorNotifier;
             }
 
         public int AddPhone(string phoneName, int warehouseId)
@@ -43,21 +42,6 @@ namespace Store.Production.ProductionFacadeService
             return phoneId;
             }
 
-        public int GetPhoneQuantity(int phoneId)
-            {
-            Console.WriteLine("[" + this.GetType().ToString() + "]" + " Looking for phone in repository");
-            IPhone phone = phones.Find(phoneId);
-            Console.WriteLine("[" + this.GetType().ToString() + "]" + " Taking all warehouse and calculating phones quantity");
-            IEnumerator<IWarehouse> activeWarehouses = warehouses.GetAll();
-            int quantity = 0;
-            while(activeWarehouses.MoveNext())
-                {
-                if (activeWarehouses.Current.IsPhoneStored(phone))
-                    quantity += activeWarehouses.Current.GetPhoneQuantity(phone);
-                }
-            return quantity;
-            }
-
         public int GetTransportationPrice(int warehouseId, string destination)
             {
             Console.WriteLine("[" + this.GetType().ToString() + "]" + " Looking for warehouse in repository");
@@ -76,8 +60,6 @@ namespace Store.Production.ProductionFacadeService
             {
             Console.WriteLine("[" + this.GetType().ToString() + "]" + " Creating warehouse");
             IWarehouse newWarehouse = productionFactory.CreateWarehouse(location, capacity);
-            Console.WriteLine("[" + this.GetType().ToString() + "]" + " Notifying administrator about new warehouse");
-            administratorNotifier.NotifyAdministrator("New warehouse was opened at " + location + "\nCapacity of new factory is " + capacity);
             Console.WriteLine("[" + this.GetType().ToString() + "]" + " Saving warehouse to repository");
             int warehouseId = warehouses.Save(newWarehouse);
             return warehouseId;

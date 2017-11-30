@@ -1,10 +1,16 @@
-﻿using Store.Sales.SalesDomainEntities;
+﻿using Store.IntegrationServices;
+using Store.Sales.SalesDomainEntities;
 using Store.Sales.SalesDomainServices;
+using Store.Sales.SalesRepository;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Store.Sales.SalesFacadeService
     {
-    public class SalesFacadeImplementation : ISalesFacade
+    public class SalesFacadeWithIntegration : ISalesFacade
         {
         ICustomerRepository customers;
         IOrderRepository orders;
@@ -12,7 +18,7 @@ namespace Store.Sales.SalesFacadeService
         IEmailSender emailSender;
         IOrderPriceCalculator priceCalculator;
 
-        public SalesFacadeImplementation(ICustomerRepository customers, IOrderRepository orders, ISalesFactory salesFactory,
+        public SalesFacadeWithIntegration(ICustomerRepository customers, IOrderRepository orders, ISalesFactory salesFactory,
             IEmailSender emailSender, IOrderPriceCalculator priceCalculator)
             {
             this.customers = customers;

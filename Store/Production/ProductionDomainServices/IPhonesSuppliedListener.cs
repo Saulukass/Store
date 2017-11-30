@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Store.Production.ProductionDomainServices
     {
-    public interface IAdministratorNotifier
+    public interface IPhonesSuppliedListener
         {
-        void NotifyAdministrator(string changes);
+        void OnPhonesSupplied(string changes);
         }
     }

@@ -21,11 +21,6 @@ namespace Store.Production.ProductionController
             return facade.AddPhone(phoneName, warehouseId);
             }
 
-        public int GetPhoneQuantity(int phoneId)
-            {
-            return facade.GetPhoneQuantity(phoneId);
-            }
-
         public int GetTransportationPrice(int warehouseId, string destination)
             {
             return facade.GetTransportationPrice(warehouseId, destination);

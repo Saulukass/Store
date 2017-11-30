@@ -3,7 +3,7 @@ using System;
 
 namespace Store.Marketing.MarketingUI
     {
-    public class ConsoleMarketingUI : IMarketingUI
+    public class ConsoleMarketingUI
         {
         IMarketingController controller;
 

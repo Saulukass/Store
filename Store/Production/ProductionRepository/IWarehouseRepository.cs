@@ -1,7 +1,7 @@
 ﻿using Store.Production.ProductionDomainEntities;
 using System.Collections.Generic;
 
-namespace Store.Production.ProductionFacadeService
+namespace Store.Production.ProductionRepository
     {
     public interface IWarehouseRepository
         {

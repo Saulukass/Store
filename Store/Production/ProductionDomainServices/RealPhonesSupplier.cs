@@ -5,11 +5,11 @@ namespace Store.Production.ProductionDomainServices
     {
     public class RealPhonesSupplier : IPhoneSupplier
         {
-        IAdministratorNotifier administratorNotifier;
+        IPhonesSuppliedListener phonesSuppliedListener;
 
-        public RealPhonesSupplier(IAdministratorNotifier administratorNotifier)
+        public void RegisterPhonesSuppliedListener(IPhonesSuppliedListener listener)
             {
-            this.administratorNotifier = administratorNotifier;
+            phonesSuppliedListener = listener;
             }
 
         public void SupplyPhonesToWarehouse(IPhone phone, IWarehouse warehouse)
@@ -26,8 +26,12 @@ namespace Store.Production.ProductionDomainServices
             Console.WriteLine("[" + this.GetType().ToString() + "]" + " Supplying " + baseModelQuantity + " real production phones: " +
                 phone.PhoneName + " at warehouse in " + warehouse.Location);
             warehouse.StorePhone(phone, baseModelQuantity);
-            administratorNotifier.NotifyAdministrator("" + baseModelQuantity + " new phones: " + phone.PhoneName +
-                " was stored in warehouse at: " + warehouse.Location);
+
+            if (null != phonesSuppliedListener)
+                {
+                phonesSuppliedListener.OnPhonesSupplied("" + baseModelQuantity + " new phones: " + phone.PhoneName +
+                    " was stored in warehouse at: " + warehouse.Location);
+                }
             }
         }
     }

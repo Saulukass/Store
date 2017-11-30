@@ -1,6 +1,6 @@
 ﻿using Store.Production.ProductionDomainEntities;
 
-namespace Store.Production.ProductionFacadeService
+namespace Store.Production.ProductionRepository
     {
     public interface IPhoneRepository
         {

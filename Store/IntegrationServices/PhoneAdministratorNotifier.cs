@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace Store.IntegrationServices
     {
-    public class PhoneAdministratorNotifier : IAdministratorNotifier
+    public class PhoneAdministratorNotifier : IPhonesSuppliedListener
         {
-        public void NotifyAdministrator(string changes)
+        public void OnPhonesSupplied(string changes)
             {
-            Console.WriteLine("[" + this.GetType().ToString() + "]" + "  Notifying administrator about: " + changes);
+            Console.WriteLine("[" + this.GetType().ToString() + "]" + "  Notifying administrator via phone about: " + changes);
             }
         }
     }

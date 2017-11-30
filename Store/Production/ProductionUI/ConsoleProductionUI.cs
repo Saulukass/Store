@@ -3,7 +3,7 @@ using System;
 
 namespace Store.Production.ProductionUI
     {
-    public class ConsoleProductionUI : IProductionUI
+    public class ConsoleProductionUI
         {
         IProductionController controller;
 
@@ -21,15 +21,6 @@ namespace Store.Production.ProductionUI
 
             int phoneId = controller.AddPhone(phoneName, warehouseId);
             Console.WriteLine("Phone added with ID -- " + phoneId);
-            }
-
-        public void GetPhoneQuantity()
-            {
-            Console.WriteLine("Enter phone id: ");
-            int phoneId = Int32.Parse(Console.ReadLine());
-
-            int quantity = controller.GetPhoneQuantity(phoneId);
-            Console.WriteLine("Currently we have " + quantity + " phones");
             }
 
         public void GetTransportationPrice()

@@ -1,6 +1,6 @@
 ﻿using Store.Sales.SalesDomainEntities;
 
-namespace Store.Sales.SalesFacadeService
+namespace Store.Sales.SalesRepository
     {
     public interface ICustomerRepository
         {

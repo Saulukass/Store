@@ -1,21 +1,19 @@
 ﻿using Store.Marketing.MarketingDomainEntities;
-using Store.Marketing.MarketingDomainServices;
+using Store.Marketing.MarketingRepository;
 using System;
 
 namespace Store.Marketing.MarketingFacadeService
     {
-    public class MarketingFacadeImplementation : IMarketingFacade
+    public class MarketingFacadeWithoutAdFiltering : IMarketingFacade
         {
         IAdvertismentRepository advertisments;
         ICampaignRepository campaigns;
-        IAdvertismentFilter filter;
         IMarketingFactory marketingFactory;
 
-        public MarketingFacadeImplementation(IAdvertismentRepository advertisments, ICampaignRepository campaigns, IAdvertismentFilter filter, IMarketingFactory marketingFactory)
+        public MarketingFacadeWithoutAdFiltering(IAdvertismentRepository advertisments, ICampaignRepository campaigns, IMarketingFactory marketingFactory)
             {
             this.advertisments = advertisments;
             this.campaigns = campaigns;
-            this.filter = filter;
             this.marketingFactory = marketingFactory;
             }
 
@@ -29,8 +27,6 @@ namespace Store.Marketing.MarketingFacadeService
             Console.WriteLine("[" + this.GetType().ToString() + "]" + " Creating Ad");
             IAdvertisment advertisment = marketingFactory.CreateAdvertisment(message);
             advertisment.ApplyNewCampaign(campaign);
-            Console.WriteLine("[" + this.GetType().ToString() + "]" + " Filtering Ad");
-            filter.FilterAdvertisment(advertisment);
             Console.WriteLine("[" + this.GetType().ToString() + "]" + " Saving Ad");
             int advertismentId = advertisments.Save(advertisment);
             return 0;
